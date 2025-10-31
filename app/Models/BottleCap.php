@@ -2,11 +2,14 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Enums\BottleCapState;
 
 class BottleCap extends Model
 {
+    use HasFactory;
+
     protected $fillable = [
         "title",
         "description",
@@ -14,6 +17,10 @@ class BottleCap extends Model
         "img_nom",
         "date_edition",
         "collector_id",
+    ];
+
+    protected $attributes = [
+        'img_nom' => 'chapa-defecto.jpg',
     ];
 
     protected $casts  = [
