@@ -1,4 +1,4 @@
-<section class="grid grid-cols-4 gap-4">
+<section class="grid lg:grid-cols-4 md:grid-cols-2 gap-4 grid-cols-1">
     @foreach($figureList as $figure)    
         <x-figure-bottleCap :figure="$figure" />
     @endforeach
