@@ -6,7 +6,7 @@
                 class="w-full h-full object-cover"
                 src="{{ asset('imgs/bottle_caps/' . $figure->img_nom) }}" alt="{{ $figure->name }}">
             <p class="z-50 absolute top-2 right-2 bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">
-                Muy buen estado
+                {{ $figure->state }}
             </p>
         </div>
         <p>{{ $figure->description }}</p>
