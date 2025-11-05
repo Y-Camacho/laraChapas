@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    LaraChapas - Registro
+    LaraChapas - Login
 @endsection
 
 
@@ -24,26 +24,6 @@
           @csrf
 
           <div class="rounded-md shadow-sm -space-y-px">
-            {{-- Nombre --}}
-            <div class="mb-4">
-              <label for="name" class="sr-only">Nombre completo</label>
-              <input
-                id="name"
-                name="name"
-                type="text"
-                value="{{ old('name') }}"
-                autocomplete="name"
-                required
-                class="appearance-none rounded-md relative block w-full px-3 py-2 border @error('name') border-red-500 @else border-gray-300 @enderror placeholder-gray-400 focus:outline-none focus:ring-orange-500 focus:border-orange-500 focus:z-10 sm:text-sm"
-                placeholder="Nombre completo"
-                aria-invalid="{{ $errors->has('name') ? 'true' : 'false' }}"
-                aria-describedby="name-error"
-              >
-              @error('name')
-                <p id="name-error" class="mt-2 text-sm text-red-600">{{ $message }}</p>
-              @enderror
-            </div>
-
             {{-- Email --}}
             <div class="mb-4">
               <label for="email" class="sr-only">Correo electrónico</label>
@@ -85,22 +65,6 @@
                 <p id="password-error" class="mt-2 text-sm text-red-600">{{ $message }}</p>
               @enderror
             </div>
-
-            {{-- Password confirmation --}}
-            <div class="mb-4 relative">
-              <label for="password_confirmation" class="sr-only">Confirmar contraseña</label>
-              <input
-                id="password_confirmation"
-                name="password_confirmation"
-                type="password"
-                autocomplete="new-password"
-                required
-                class="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-400 focus:outline-none focus:ring-orange-500 focus:border-orange-500 focus:z-10 sm:text-sm"
-                placeholder="Confirmar contraseña"
-              >
-            </div>
-          </div>
-
           {{-- Global errors (opcional) --}}
           @if ($errors->any())
             <div class="rounded-md bg-red-50 p-3 text-sm text-red-700">
@@ -114,7 +78,7 @@
 
           <div>
             <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-orange-800 hover:bg-orange-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500">
-              Registrarse
+              Confirmar
             </button>
           </div>
         </form>

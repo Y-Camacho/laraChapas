@@ -1,4 +1,4 @@
-<header style="background-color:#A72608" class="w-full flex justify-center">
+<header style="background-color:#A72608" class="w-full flex justify-center z-50">
     <div class="flex justify-between w-3/4 md:w-3/4 py-3">
         <h1 class="text-3xl font-bold text-white">
             <a href="{{ route('home') }}" >

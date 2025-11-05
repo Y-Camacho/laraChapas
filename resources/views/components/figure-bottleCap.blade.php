@@ -1,4 +1,4 @@
-<figure class="bg-white rounded-md max-w-64 p-2 flex flex-col justify-between h-full relative">
+<figure class="bg-white rounded-md lg:max-w-64 p-2 flex flex-col justify-between h-full relative">
     <div>
         <h3 style="color:#090c02" class="text-2xl font-bold pb-1">{{ $figure->title }}</h3>
         <div class="w-full h-64 overflow-hidden relative">

@@ -9,7 +9,7 @@
 <body style="background-color:#E6EED6" class="font-sans flex flex-col min-h-screen items-center">
     <x-header />
 
-    <main class="flex-grow w-3/5 md:w-3/5 py-10">
+    <main class="flex-grow w-4/5 lg:w-3/5 py-10">
         @yield('content')
     </main>
 

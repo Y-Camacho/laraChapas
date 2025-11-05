@@ -32,6 +32,6 @@ class RegistreController extends Controller
 
         auth()->login($user);
 
-        return redirect()->route('home')->with('register-status', 'Cuenta creada correctamente.');
+        return redirect()->route('home')->with('auth-status', 'Cuenta creada correctamente.');
     }
 }
