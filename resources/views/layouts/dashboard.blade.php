@@ -10,6 +10,8 @@
         @yield('side-content')
     </div>    
 
-    @yield('dash-content')
+    <div class="px-5">
+        @yield('dash-content')
+    </div>
 
 @endsection

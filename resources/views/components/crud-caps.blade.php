@@ -50,7 +50,6 @@
 
         <input type="hidden" name="collector_id" value="{{ $collector->id}}">
         
-        <!-- Botones -->
         <div class="flex items-center gap-2">
             <!-- Botón Guardar -->
             <button type="submit" class="bg-green-600 hover:bg-green-700 text-white p-2 rounded-md">
@@ -101,7 +100,6 @@
 
         <input type="hidden" name="id" value="{{ $figure->id }}">
         
-        <!-- Botones -->
         <div class="flex items-center gap-2">
             <!-- Botón Guardar -->
             <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-md">
