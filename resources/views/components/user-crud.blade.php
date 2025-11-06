@@ -11,7 +11,7 @@
         <div class="flex-1">
             <input  
                 placeholder="Nombre" 
-                value="{{ old(name) }}"
+                value="{{ old('name') }}"
                 type="text" name="name" 
                 class="w-full border-gray-300 rounded-md p-2 text-sm focus:ring focus:ring-blue-300">
         </div>
@@ -20,7 +20,7 @@
         <div class="flex-1">
             <input 
                 placeholder="Email" 
-                value="{{ old(email) }}"
+                value="{{ old('email') }}"
                 type="text" name="email" 
                 class="w-full border-gray-300 rounded-md p-2 text-sm focus:ring focus:ring-blue-300">
         </div>
