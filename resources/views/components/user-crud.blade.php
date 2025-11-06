@@ -9,12 +9,20 @@
         
         <!-- Nombre -->
         <div class="flex-1">
-            <input placeholder="Nombre" type="text" name="name" class="w-full border-gray-300 rounded-md p-2 text-sm focus:ring focus:ring-blue-300">
+            <input  
+                placeholder="Nombre" 
+                value="{{ old(name) }}"
+                type="text" name="name" 
+                class="w-full border-gray-300 rounded-md p-2 text-sm focus:ring focus:ring-blue-300">
         </div>
         
         <!-- Email -->
         <div class="flex-1">
-            <input placeholder="Email" type="text" name="email" class="w-full border-gray-300 rounded-md p-2 text-sm focus:ring focus:ring-blue-300">
+            <input 
+                placeholder="Email" 
+                value="{{ old(email) }}"
+                type="text" name="email" 
+                class="w-full border-gray-300 rounded-md p-2 text-sm focus:ring focus:ring-blue-300">
         </div>
 
         <!-- Contraseña -->
@@ -63,7 +71,7 @@
             <input placeholder="Email" type="text" name="email" value="{{ $user->email}}" class="w-full border-gray-300 rounded-md p-2 text-sm focus:ring focus:ring-blue-300">
         </div>
         
-        <input type="text" name="id" value="{{ $user->id }}" disabled >
+        <input type="text" name="id" value="{{ $user->id }}" readonly >
         
         <div class="flex items-center gap-2">
             <!-- Botón Guardar -->

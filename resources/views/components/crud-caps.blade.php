@@ -12,7 +12,10 @@
         <div class="flex-1">
             
             <label for="imagen" class="sr-only">Choose file</label>
-            <input type="file" name="imagen" id="imagen" class="block w-full border border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none
+            <input 
+                type="file" name="imagen" 
+                id="imagen" 
+                class="block w-full border border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none
                 file:bg-gray-50 file:border-0
                 file:me-4
                 file:py-3 file:px-4">
@@ -20,12 +23,19 @@
         
         <!-- Título -->
         <div class="flex-1">
-            <input placeholder="Titulo de la chapa" type="text" name="title" class="w-full border-gray-300 rounded-md p-2 text-sm focus:ring focus:ring-blue-300">
+            <input 
+                placeholder="Titulo de la chapa" 
+                value="{{ old('title') }}"
+                type="text" name="title" 
+                class="w-full border-gray-300 rounded-md p-2 text-sm focus:ring focus:ring-blue-300">
         </div>
         
         <!-- Descripción -->
         <div class="flex-1">
-            <textarea placeholder="Descripción" name="description" rows="2" class="w-full border-gray-300 rounded-md p-2 text-sm focus:ring focus:ring-blue-300"></textarea>
+            <textarea 
+                placeholder="Descripción" 
+                name="description" rows="2" 
+                class="w-full border-gray-300 rounded-md p-2 text-sm focus:ring focus:ring-blue-300">{{ old('description') }}</textarea>
         </div>
         
         <!-- Estado -->

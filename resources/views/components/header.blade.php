@@ -7,7 +7,14 @@
         </h1>
         @if($loged)
             @if($admin)
-                <nav id="menu-log" class="relative">
+                <nav class="bg-gray-100 dark:bg-gray-800 md:flex hidden">
+                    <div class="max-w-screen-xl mx-auto px-4 py-3 flex space-x-8">
+                        <a href="{{ route('admin') }}" class="text-gray-800 dark:text-gray-200 border-b-2 border-transparent hover:border-blue-500 hover:text-blue-600 transition">Dashboard</a>
+                        <a href="{{ route('logout') }}" class="text-gray-800 dark:text-gray-200 border-b-2 border-transparent hover:border-red-500 hover:text-red-600 transition">Log Out</a>
+                    </div>
+                </nav>
+
+                <nav id="menu-log" class="relative md:hidden">
                     <button id="menu-log-btn" class="text-white bg-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-amber-900-300 font-medium rounded-lg text-sm pr-3 py-2.5 text-center inline-flex items-center" type="button"><svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
                     </svg>
@@ -20,7 +27,16 @@
                     </div>
                 </nav>
             @else
-                <nav id="menu-log" class="relative">
+                <nav class="bg-gray-100 dark:bg-gray-800 md:flex hidden">
+                    <div class="max-w-screen-xl mx-auto px-4 py-3 flex space-x-8">
+                        <a href="{{ route('collector.profile', optional(auth()->user()->collector)->id) ?? '#' }}" class="text-gray-800 dark:text-gray-200 border-b-2 border-transparent hover:border-blue-500 hover:text-blue-600 transition">Perfil</a>
+                        <a href="{{ route('collector.collection', optional(auth()->user()->collector)->id) ?? '#' }}" class="text-gray-800 dark:text-gray-200 border-b-2 border-transparent hover:border-blue-500 hover:text-blue-600 transition">Colección</a>
+                        <a href="{{ route('logout') }}" class="text-gray-800 dark:text-gray-200 border-b-2 border-transparent hover:border-red-500 hover:text-red-600 transition">Log Out</a>
+                    </div>
+                </nav>
+
+
+                <nav id="menu-log" class="relative md:hidden">
                     <button id="menu-log-btn" class="text-white bg-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-amber-900-300 font-medium rounded-lg text-sm pr-3 py-2.5 text-center inline-flex items-center" type="button"><svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
                     </svg>

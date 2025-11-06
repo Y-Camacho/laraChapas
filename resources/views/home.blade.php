@@ -5,10 +5,11 @@
 @endsection
 
 @section('content')
+    <x-cap-search />
+
     <h1 class="text-3xl font-bold pb-10">
       Descubre nuevas colecciones.
     </h1>
 
     <x-figure-list :figureList="$bottleCapsList"/>
-
 @endsection

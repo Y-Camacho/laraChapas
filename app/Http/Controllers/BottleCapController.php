@@ -67,4 +67,15 @@ class BottleCapController extends Controller
 
         return redirect()->back()->with('success', 'Registro eliminado correctamente.');
     }
+
+    function findByName(Request $request) {
+        $validated = $request->validate([
+            'buscar' => 'nullable|string|max:255'
+        ]);
+
+        $busqueda = $validated['buscar'];
+        $bottleCapsList = BottleCap::where('title', 'like', '%' . $busqueda . '%')->paginate(12);
+
+        return view('home', compact('bottleCapsList'));
+    }
 }
