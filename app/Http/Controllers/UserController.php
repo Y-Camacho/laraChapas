@@ -13,14 +13,14 @@ class UserController extends Controller
     function newUser(Request $request) {
 
         $validated = $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
+            'add_name' => ['required', 'string', 'max:255'],
+            'add_email' => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
             'psswd' => ['required', Password::min(8)->mixedCase()->numbers()->uncompromised()],
         ]);
 
         $user = User::create([
-            'name' => $validated['name'],
-            'email' => $validated['email'],
+            'name' => $validated['add_name'],
+            'email' => $validated['add_email'],
             'password' => Hash::make($validated['psswd']),
         ]);
 
@@ -38,6 +38,17 @@ class UserController extends Controller
         ]);
 
         $user = User::findOrFail($validated['id']);
+
+        // Verificar si el email ya está en uso por otro usuario
+        $existingUser = User::where('email', $validated['email'])
+                        ->where('id', '!=', $validated['id'])
+                        ->first();
+
+        if ($existingUser) {
+            return redirect()->back()
+                            ->withErrors(['email' => 'El correo electrónico ya está en uso por otro usuario.'])
+                            ->withInput();
+        }
 
         $user->name = $validated['name'];
         $user->email = $validated['email'];

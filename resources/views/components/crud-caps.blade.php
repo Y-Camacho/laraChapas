@@ -1,3 +1,22 @@
+@if ($errors->any())
+    <div id="error-message" class="rounded-md bg-red-50 p-3 text-sm text-red-700 fixed right-12 shadow transition-opacity duration-500">
+        <ul class="list-disc list-inside">
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+        </ul>
+    </div>
+@endif
+<script>
+    // Espera 3 segundos y luego desvanece el mensaje
+    setTimeout(() => {
+        const msg = document.getElementById('error-message');
+        if (msg) {
+            msg.style.opacity = '0';
+            setTimeout(() => msg.remove(), 500); // lo elimina del DOM después del fade
+        }
+    }, 3000);
+</script>
 
 <div class="">
     <h1 class="text-4xl font-bold mb-7">Añade una nueva chapa a tu colección</h1>
@@ -25,8 +44,8 @@
         <div class="flex-1">
             <input 
                 placeholder="Titulo de la chapa" 
-                value="{{ old('title') }}"
-                type="text" name="title" 
+                value="{{ old('add_title') }}"
+                type="text" name="add_title" 
                 class="w-full border-gray-300 rounded-md p-2 text-sm focus:ring focus:ring-blue-300">
         </div>
         
@@ -34,8 +53,8 @@
         <div class="flex-1">
             <textarea 
                 placeholder="Descripción" 
-                name="description" rows="2" 
-                class="w-full border-gray-300 rounded-md p-2 text-sm focus:ring focus:ring-blue-300">{{ old('description') }}</textarea>
+                name="add_description" rows="2" 
+                class="w-full border-gray-300 rounded-md p-2 text-sm focus:ring focus:ring-blue-300">{{ old('add_description') }}</textarea>
         </div>
         
         <!-- Estado -->
@@ -47,16 +66,6 @@
                 <option value="Muy buen " >Muy buen estado</option>
             </select>
         </div>
-
-        @if ($errors->any())
-            <div class="rounded-md bg-red-50 p-3 text-sm text-red-700">
-              <ul class="list-disc list-inside">
-                @foreach ($errors->all() as $error)
-                  <li>{{ $error }}</li>
-                @endforeach
-              </ul>
-            </div>
-        @endif
 
         <input type="hidden" name="collector_id" value="{{ $collector->id}}">
         

@@ -3,14 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\BottleCap;
+use App\Http\Controllers\HomeController;
 use Illuminate\Http\Request;
 
 class BottleCapController extends Controller
 {
     function newBottleCap(Request $request) {
         $validated = $request->validate([
-            'title' => ['required', 'string', 'max:255'],
-            'description' => ['required', 'string'],
+            'add_title' => ['required', 'string', 'max:255'],
+            'add_description' => ['required', 'string'],
             'state' => ['required', 'string'],
             'imagen' => 'required|image|mimes:jpg,jpeg,png,gif|max:2048',
             'collector_id' => ['required', 'integer'],
@@ -23,8 +24,8 @@ class BottleCapController extends Controller
             $ruta = $file->storeAs('images/bottle_caps', $nombreArchivo, 'public');
 
             $newCap = new BottleCap();
-            $newCap->title = $validated["title"];
-            $newCap->description = $validated["description"];
+            $newCap->title = $validated["add_title"];
+            $newCap->description = $validated["add_description"];
             $newCap->state = $validated["state"];
             $newCap->collector_id = $validated['collector_id'];
             $newCap->img_nom = $nombreArchivo;
@@ -73,7 +74,12 @@ class BottleCapController extends Controller
             'buscar' => 'nullable|string|max:255'
         ]);
 
+        
         $busqueda = $validated['buscar'];
+        if($busqueda == null || $busqueda == ' ') {
+            return redirect()->action([HomeController::class, 'index']);
+        }
+        
         $bottleCapsList = BottleCap::where('title', 'like', '%' . $busqueda . '%')->paginate(12);
 
         return view('home', compact('bottleCapsList'));
